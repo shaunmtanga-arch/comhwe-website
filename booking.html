@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>COMHWE Booking Services</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body class="booking">
+
+<header>
+    <img src="logo.jpg" alt="COMHWE Logo" class="logo">
+    <h1>COMHWE Booking</h1>
+    <p>Schedule your counselling session with ease.</p>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="index.html#about">About</a>
+    <a href="booking.html">Book</a>
+</nav>
+
+<div class="section">
+    <h2>Book Your Session</h2>
+    <p>Fill in your details and continue to WhatsApp:</p>
+
+    <form id="bookingForm" class="booking-form">
+        
+        <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="form-group">
+            <label>Service</label>
+            <select id="service" required>
+                <option value="">Select a service</option>
+                <option value="Individual Counseling">Individual Counseling</option>
+                <option value="Couples Therapy">Couples Therapy</option>
+                <option value="Online Support">Online Support</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Message / Notes</label>
+            <textarea id="message"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Book via WhatsApp</button>
+    </form>
+
+    <p style="text-align:center; margin-top:20px;">Or contact via email:</p>
+    <a href="mailto:womanofexousia@gmail.com?subject=Booking%20Request" 
+       class="btn" 
+       style="display:block; max-width:200px; margin:0 auto; text-align:center;">
+        Contact via Email
+    </a>
+</div>
+
+<footer>
+    <p>© 2026 COMHWE. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var service = document.getElementById("service").value;
+    var date = document.getElementById("date").value;
+    var message = document.getElementById("message").value;
+
+    var phoneNumber = "263772325782"; // no +
+
+    var text = encodeURIComponent(
+        "Hello COMHWE,\n\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Service: " + service + "\n" +
+        "Preferred Date: " + date + "\n" +
+        "Message: " + message
+    );
+
+    var whatsappURL = "https://wa.me/" + phoneNumber + "?text=" + text;
+
+    window.open(whatsappURL, "_blank");
+});
+</script>
+
+</body>
+</html>
